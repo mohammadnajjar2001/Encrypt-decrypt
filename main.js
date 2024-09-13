@@ -1,35 +1,32 @@
 function processText() {
     const textInput = document.getElementById("text-input").value;
     const keyInput = document.getElementById("key-input").value;
-    
+
     const methodSelect = document.getElementById("method-select");
     const method = methodSelect.value;
     let resultText = "";
 
-    
-        if (method === "encrypt") {
-            resultText1 = encryptCaesar(textInput, parseInt(keyInput));
-            resultText2 = encryptMultiplicative(resultText1, parseInt(keyInput));
-            resultText3 = encryptAutokey(resultText2, keyInput);
-        } else if (method === "decrypt") {
-            resultText1 = decryptAutokey(textInput, keyInput);
-            resultText2 = decryptMultiplicative(resultText2, parseInt(keyInput));
-            resultText3 = decryptCaesar(resultText2, parseInt(keyInput));
-            
-        }
-    
+
     if (method === "encrypt") {
-    document.getElementById("result").innerHTML = "Result:<br> <p id=redd>[Caeser] : "
-         + resultText1 + "</p><p id=redd>[Multiplicative] : " 
-        + resultText2 + "</p><p id=redd>[cipher text] : " + resultText3+"</p>";    }
-    
-    else{
-    document.getElementById("result").innerHTML = "Result:<br> <p id=redd>[Autokey] : "
-         + resultText1 + "</p><p id=redd>[Multiplicative] : " 
-        + resultText2 + "</p><p id=redd>[plain text] : " + resultText3+"</p>";
+        resultText1 = encryptCaesar(textInput, parseInt(keyInput));
+        resultText2 = encryptMultiplicative(resultText1, parseInt(keyInput));
+        resultText3 = encryptAutokey(resultText2, keyInput);
+    } else if (method === "decrypt") {
+        resultText1 = decryptAutokey(textInput, keyInput);
+        resultText2 = decryptMultiplicative(resultText2, parseInt(keyInput));
+        resultText3 = decryptCaesar(resultText2, parseInt(keyInput));
 
     }
+
+    if (method === "encrypt") {
+        document.getElementById("result").innerHTML = "<p id=redd>[cipher text] : " + resultText3 + "</p>";
     }
+
+    else {
+        document.getElementById("result").innerHTML = "<p id=redd>[plain text] : " + resultText3 + "</p>";
+
+    }
+}
 
 function encryptCaesar(text, key) {
     let encryptedText = "";
@@ -145,53 +142,53 @@ function decryptMultiplicative(text, key) {
 }
 
 function encryptAutokey(plainText, key) {
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-let newKey = key.toUpperCase() + plainText.toUpperCase();
-newKey = newKey.substring(0, newKey.length - key.length);
-let encryptedText = '';
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let newKey = key.toUpperCase() + plainText.toUpperCase();
+    newKey = newKey.substring(0, newKey.length - key.length);
+    let encryptedText = '';
 
-for (let x = 0; x < plainText.length; x++) {
-const plainChar = plainText[x];
-const keyChar = newKey[x];
+    for (let x = 0; x < plainText.length; x++) {
+        const plainChar = plainText[x];
+        const keyChar = newKey[x];
 
-if (alphabet.includes(plainChar.toUpperCase())) {
-    const plainIndex = alphabet.indexOf(plainChar.toUpperCase());
-    const keyIndex = alphabet.indexOf(keyChar);
-    const total = (plainIndex + keyIndex) % 26;
-    const encryptedChar = alphabet[total];
-    encryptedText += (plainChar === plainChar.toUpperCase()) ? encryptedChar : encryptedChar.toLowerCase();
-} else {
-    encryptedText += plainChar;
-}
-}
+        if (alphabet.includes(plainChar.toUpperCase())) {
+            const plainIndex = alphabet.indexOf(plainChar.toUpperCase());
+            const keyIndex = alphabet.indexOf(keyChar);
+            const total = (plainIndex + keyIndex) % 26;
+            const encryptedChar = alphabet[total];
+            encryptedText += (plainChar === plainChar.toUpperCase()) ? encryptedChar : encryptedChar.toLowerCase();
+        } else {
+            encryptedText += plainChar;
+        }
+    }
 
-return encryptedText;
+    return encryptedText;
 }
 
 function decryptAutokey(encryptedText, key) {
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-let newKey = key.toUpperCase();
-let decryptedText = '';
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let newKey = key.toUpperCase();
+    let decryptedText = '';
 
-for (let x = 0; x < encryptedText.length; x++) {
-const encryptedChar = encryptedText[x];
-const keyChar = newKey[x];
+    for (let x = 0; x < encryptedText.length; x++) {
+        const encryptedChar = encryptedText[x];
+        const keyChar = newKey[x];
 
-if (alphabet.includes(encryptedChar.toUpperCase())) {
-    const encryptedIndex = alphabet.indexOf(encryptedChar.toUpperCase());
-    const keyIndex = alphabet.indexOf(keyChar.toUpperCase());
-    let decryptedIndex = (encryptedIndex - keyIndex) % 26;
-    if (decryptedIndex < 0) {
-        decryptedIndex += 26;
+        if (alphabet.includes(encryptedChar.toUpperCase())) {
+            const encryptedIndex = alphabet.indexOf(encryptedChar.toUpperCase());
+            const keyIndex = alphabet.indexOf(keyChar.toUpperCase());
+            let decryptedIndex = (encryptedIndex - keyIndex) % 26;
+            if (decryptedIndex < 0) {
+                decryptedIndex += 26;
+            }
+            const decryptedChar = alphabet[decryptedIndex];
+            decryptedText += (encryptedChar === encryptedChar.toUpperCase()) ? decryptedChar : decryptedChar.toLowerCase();
+            newKey += (encryptedChar === encryptedChar.toUpperCase()) ? decryptedChar : decryptedChar.toLowerCase();
+        } else {
+            decryptedText += encryptedChar;
+            newKey += encryptedChar;
+        }
     }
-    const decryptedChar = alphabet[decryptedIndex];
-    decryptedText += (encryptedChar === encryptedChar.toUpperCase()) ? decryptedChar : decryptedChar.toLowerCase();
-    newKey += (encryptedChar === encryptedChar.toUpperCase()) ? decryptedChar : decryptedChar.toLowerCase();
-} else {
-    decryptedText += encryptedChar;
-    newKey += encryptedChar;
-}
-}
 
-return decryptedText;
+    return decryptedText;
 }
