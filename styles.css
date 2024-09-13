@@ -1,70 +1,113 @@
-/*body {
-    font-family: Arial, sans-serif;
+/* تهيئة النصوص */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
+    text-align: center;
     padding: 20px;
     background-color: #f1f1f1;
+    box-sizing: border-box;
 }
-*/
+
+/* تعديل حجم الخطوط */
 h1 {
     color: #333;
+    font-size: 2rem;
+    /* حجم الخط النسبي */
 }
 
 label {
     display: block;
     margin-bottom: 10px;
+    font-size: 1rem;
 }
-#redd{
-    color: red;
-}
+
+/* تهيئة العناصر المدخلة */
 input[type="text"],
 input[type="number"] {
-    width: 300px;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 55px;
+    width: 100%;
+    /* ليأخذ 100% من العرض المتاح */
+    max-width: 400px;
+    /* حدود العرض القصوى */
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 select {
-    padding: 5px;
-    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid #ccc;
 }
 
+/* تهيئة الأزرار */
 button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: #4CAF50;
     color: white;
-    border-radius: 55px;
-
+    border-radius: 25px;
+    border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+/* قسم النتيجة */
 #result {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 1.2rem;
 }
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    text-align: center;
-    padding: 0;
-    
-}
-#rir{
-    width: 500px;
+
+/* قسم الـ #rir */
+#rir {
+    width: 90%;
+    /* ليصبح متجاوبًا */
+    max-width: 500px;
+    /* حدود العرض القصوى */
     min-height: 50px;
     background-color: rgb(109, 191, 109);
-    position: relative;     
-    right: -40%;
-
+    margin: 0 auto;
+    /* ليكون في المنتصف */
+    position: relative;
+    right: 0;
+    /* تم تعديلها لتجنب التحرك خارج الشاشة */
 }
+
+/* قسم الـ section */
 section {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 100%;
+    width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* تصميم متجاوب باستخدام الميديا كويري */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+    }
 }
