@@ -5,38 +5,40 @@
     <title>Text Encryption/Decryption</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>sdsadfsdssadsadfsdfsdsdds</h1>
     <div id="rir">
         <h1>Explanation of the application</h1>
-        <h3 style="text-align: center;">Encrypt/decrypt any text using three algorithms combined and by giving a key between [1~25]</h3>
+        <h3 style="text-align: center;">Encrypt/decrypt any text using three algorithms combined and by giving a key
+            between [1~25]</h3>
         <h3>The algorithms used are Caesar, Multiplicative, and Aotukey</h3>
-    <br>  
-    <br> 
-    <label for="text-input">Enter Text:</label> 
-    <input type="text" id="text-input" placeholder="Enter any Text here">
-    <br>  
-    <br> 
-    <label for="key-input">Encryption/Decryption Key:</label>
- 
- 
-    <input type="text" id="key-input" placeholder="Enter key between [1~25]">
-    <br>  
-    <br> 
-    <label for="method-select">Choose Method:</label>
- 
- 
-    <select id="method-select">
-        <option value="encrypt">Encrypt</option>
-        <option value="decrypt">Decrypt</option>
-    </select>
-    <br>  
-    <br>  
-    <button onclick="processText()">Process</button>
+        <br>
+        <br>
+        <label for="text-input">Enter Text:</label>
+        <input type="text" id="text-input" placeholder="Enter any Text here">
+        <br>
+        <br>
+        <label for="key-input">Encryption/Decryption Key:</label>
 
-    <div id="result"></div>
+
+        <input type="text" id="key-input" placeholder="Enter key between [1~25]">
+        <br>
+        <br>
+        <label for="method-select">Choose Method:</label>
+
+
+        <select id="method-select">
+            <option value="encrypt">Encrypt</option>
+            <option value="decrypt">Decrypt</option>
+        </select>
+        <br>
+        <br>
+        <button onclick="processText()">Process</button>
+
+        <div id="result"></div>
     </div>
 
     <script src="main.js"></script>
 </body>
+
 </html>
