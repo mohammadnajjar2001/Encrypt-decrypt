@@ -1,7 +1,7 @@
 function processText() {
-    const textInput = document.getElementById("text-input").value;
-    const keyInput = parseInt(document.getElementById("key-input").value);
-    const method = document.getElementById("method-select").value;
+    textInput = document.getElementById("text-input").value;
+    keyInput = parseInt(document.getElementById("key-input").value);
+    method = document.getElementById("method-select").value;
     let resultText = "";
 
     // التحقق من صحة الإدخال
@@ -45,7 +45,7 @@ function decryptCaesar(text, key) {
 }
 
 function shiftChar(char, key) {
-    const charCode = char.charCodeAt(0);
+    charCode = char.charCodeAt(0);
     if (charCode >= 65 && charCode <= 90) {
         return String.fromCharCode(((charCode - 65 + key + 26) % 26) + 65);
     }
@@ -60,7 +60,7 @@ function encryptMultiplicative(text, key) {
 }
 
 function decryptMultiplicative(text, key) {
-    const inverseKey = modularInverse(key, 26);
+    inverseKey = modularInverse(key, 26);
     if (inverseKey === -1) {
         return "Invalid key. The key must be coprime with 26.";
     }
@@ -68,7 +68,7 @@ function decryptMultiplicative(text, key) {
 }
 
 function multiplyChar(char, key) {
-    const charCode = char.charCodeAt(0);
+    charCode = char.charCodeAt(0);
     if (charCode >= 65 && charCode <= 90) {
         return String.fromCharCode(((charCode - 65) * key % 26) + 65);
     }
@@ -86,14 +86,14 @@ function modularInverse(a, m) {
 }
 
 function encryptAutokey(plainText, key) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let newKey = key.toUpperCase() + plainText.toUpperCase();
     newKey = newKey.substring(0, newKey.length - key.length);
     return transformAutokey(plainText, newKey, alphabet, 1);
 }
 
 function decryptAutokey(encryptedText, key) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return transformAutokey(encryptedText, key.toUpperCase(), alphabet, -1);
 }
 
@@ -102,12 +102,12 @@ function transformAutokey(text, key, alphabet, direction) {
     let resultText = '';
 
     for (let i = 0; i < text.length; i++) {
-        const textChar = text[i];
+        textChar = text[i];
         if (alphabet.includes(textChar.toUpperCase())) {
-            const textIndex = alphabet.indexOf(textChar.toUpperCase());
-            const keyIndex = alphabet.indexOf(newKey[i % newKey.length]);
-            const newIndex = (textIndex + direction * keyIndex + 26) % 26;
-            const newChar = alphabet[newIndex];
+            textIndex = alphabet.indexOf(textChar.toUpperCase());
+            keyIndex = alphabet.indexOf(newKey[i % newKey.length]);
+            newIndex = (textIndex + direction * keyIndex + 26) % 26;
+            newChar = alphabet[newIndex];
             resultText += textChar === textChar.toUpperCase() ? newChar : newChar.toLowerCase();
             newKey += newChar;
         } else {
