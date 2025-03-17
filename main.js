@@ -1,6 +1,6 @@
 function processText() {
-    const textInput = document.getElementById("text-input").value.trim();
-    const keyInput = parseInt(document.getElementById("key-input").value.trim());
+    const textInput = document.getElementById("text-input").value;
+    const keyInput = parseInt(document.getElementById("key-input").value);
     const method = document.getElementById("method-select").value;
     let resultText = "";
 
