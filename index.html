@@ -4,6 +4,7 @@
 <head>
     <title>Text Encryption/Decryption</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -13,32 +14,37 @@
             between [1~25]</h3>
         <h3>Provided that the key is an odd number <br> and the encryption is in English only.</h3>
         <h3>The algorithms used are Caesar, Multiplicative, and Aotukey</h3>
-        <br>
-        <br>
-        <label for="text-input">Enter Text:</label>
-        <input type="text" id="text-input" placeholder="Enter any Text here">
-        <br>
-        <br>
-        <label for="key-input">Encryption/Decryption Key:</label>
-
-
-        <input type="text" id="key-input" placeholder="Enter key between [1~25]">
-        <br>
-        <br>
-        <label for="method-select">Choose Method:</label>
-
-
-        <select id="method-select">
-            <option value="encrypt">Encrypt</option>
-            <option value="decrypt">Decrypt</option>
+        <br><br>
+        <label for="text-input">: أدخل النص المراد تشفيره او فك تشفيره</label>
+        <input type="text" id="text-input" placeholder="Enter text here">
+        <br><br>
+        <label for="key-input">: أدخل المفتاح</label>
+        <input type="text" id="key-input" placeholder="Enter encryption/decryption key">
+        <br><br>
+        <label for="algorithm-select">: اختر الخزارزمية</label>
+        <select id="algorithm-select">
+            <option value="caesar">Caesar Cipher</option>
+            <option value="multiplicative">Multiplicative Cipher</option>
+            <option value="autokey">Autokey Cipher</option>
         </select>
-        <br>
-        <br>
-        <button onclick="processText()">Process</button>
+        <br><br>
+        <label for="method-select">: اختر تشفير او فك</label>
+        <select id="method-select">
+            <option value="encrypt">تشفير</option>
+            <option value="decrypt">فك تشفير</option>
+        </select>
 
-        <div id="result"></div>
+        <button onclick="processText()">انطلق</button>
+
+        <div id="result" style="display: none;"></div>
+        <center>
+            <button id="copy-button" onclick="copyToClipboard()" style="display: none;">
+                <span id="copy-text">نسخ</span> 📋
+            </button>
+        </center>
+        
+
     </div>
-
     <script src="main.js"></script>
 </body>
 

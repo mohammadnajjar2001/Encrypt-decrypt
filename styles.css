@@ -1,116 +1,92 @@
-/* تهيئة النصوص */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    text-align: center;
-    padding: 20px;
-    background-color: #f1f1f1;
-    box-sizing: border-box;
-}
-
-/* تعديل حجم الخطوط */
 h1 {
     color: #333;
-    font-size: 2rem;
-    /* حجم الخط النسبي */
 }
 
 label {
     display: block;
     margin-bottom: 10px;
-    font-size: 1rem;
 }
 
-/* تهيئة العناصر المدخلة */
+#redd {
+    color: red;
+}
+
 input[type="text"],
 input[type="number"] {
-    width: 100%;
-    /* ليأخذ 100% من العرض المتاح */
-    max-width: 400px;
-    /* حدود العرض القصوى */
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    width: 300px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 55px;
 }
 
 select {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 25px;
-    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 16px;
 }
 
-/* تهيئة الأزرار */
 button {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 16px;
     background-color: #4CAF50;
     color: white;
-    border-radius: 25px;
-    border: none;
+    border-radius: 55px;
+
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-/* قسم النتيجة */
 #result {
     margin-top: 20px;
-    font-size: 1.2rem;
+    font-size: 18px;
 }
 
-/* قسم الـ #rir */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+
+}
+
 #rir {
-    width: 90%;
-    /* ليصبح متجاوبًا */
-    max-width: 500px;
-    /* حدود العرض القصوى */
+    width: 500px;
     min-height: 50px;
     background-color: rgb(109, 191, 109);
-    margin: 0 auto;
-    /* ليكون في المنتصف */
     position: relative;
-    right: 0;
-    /* تم تعديلها لتجنب التحرك خارج الشاشة */
+    right: -40%;
+
 }
 
-/* قسم الـ section */
 section {
-    max-width: 100%;
-    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+}
+#copy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-/* تصميم متجاوب باستخدام الميديا كويري */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    select {
-        width: 100%;
-    }
-
-    button {
-        width: 100%;
-        padding: 15px;
-    }
+#copy-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
-#hed{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+#copy-button:active {
+    transform: scale(0.95);
 }
+
+
